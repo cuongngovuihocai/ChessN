@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <!-- Background with rounded corners and soft green theme (#8BA888) -->
+  <rect width="100" height="100" rx="22" fill="#8BA888" />
+  
+  <defs>
+    <radialGradient id="bishop-grad-w" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#D3DDD6" />
+    </radialGradient>
+  </defs>
+
+  <!-- Base -->
+  <path d="M25 85 C25 76, 75 76, 75 85 Z" fill="url(#bishop-grad-w)" stroke="#3E4A56" stroke-width="3.5" />
+  <ellipse cx="50" cy="78" rx="20" ry="5" fill="url(#bishop-grad-w)" stroke="#3E4A56" stroke-width="2.5" />
+  
+  <!-- Body -->
+  <path d="M34 75 C34 58, 40 50, 50 50 C60 50, 66 58, 66 75 Z" fill="url(#bishop-grad-w)" stroke="#3E4A56" stroke-width="3.5" />
+  
+  <!-- Floppy Elephant Ears -->
+  <ellipse cx="32" cy="46" rx="10" ry="12" fill="url(#bishop-grad-w)" stroke="#3E4A56" stroke-width="3" />
+  <ellipse cx="68" cy="46" rx="10" ry="12" fill="url(#bishop-grad-w)" stroke="#3E4A56" stroke-width="3" />
+  
+  <!-- Inner Ears -->
+  <ellipse cx="32" cy="46" rx="6" ry="8" fill="#FFC0CB" opacity="0.5" />
+  <ellipse cx="68" cy="46" rx="6" ry="8" fill="#FFC0CB" opacity="0.5" />
+
+  <!-- Round Elephant Head -->
+  <circle cx="50" cy="46" r="16" fill="url(#bishop-grad-w)" stroke="#3E4A56" stroke-width="3.5" />
+
+  <!-- Elephant Trunk -->
+  <path d="M 50 52 C 50 64, 42 66, 42 60 C 42 56, 46 56, 46 58" fill="none" stroke="#3E4A56" stroke-width="4" stroke-linecap="round" />
+
+  <!-- Bishop's Mitre Hat -->
+  <path d="M36 34 C36 18, 50 8, 50 8 C50 8, 64 18, 64 34 Z" fill="url(#bishop-grad-w)" stroke="#3E4A56" stroke-width="3" stroke-linejoin="round" />
+  
+  <!-- Hat Cross Symbol -->
+  <line x1="50" y1="16" x2="50" y2="28" stroke="#3E4A56" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="44" y1="22" x2="56" y2="22" stroke="#3E4A56" stroke-width="2.5" stroke-linecap="round" />
+  <circle cx="50" cy="7" r="3.5" fill="#FFD700" stroke="#3E4A56" stroke-width="1.5" />
+
+  <!-- Eyes & Cheeks -->
+  <circle cx="44" cy="42" r="2.5" fill="#1A232E" />
+  <circle cx="56" cy="42" r="2.5" fill="#1A232E" />
+  <circle cx="39" cy="47" r="2" fill="#FFC0CB" opacity="0.8" />
+  <circle cx="61" cy="47" r="2" fill="#FFC0CB" opacity="0.8" />
+</svg>
