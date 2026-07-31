@@ -1,0 +1,8 @@
+{
+  "name": "Kid Chess",
+  "description": "Trò chơi cờ vua hoạt hình 2D vui nhộn dành cho trẻ em, có giải thích nước đi giúp bé học tập và cải thiện kỹ năng.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
