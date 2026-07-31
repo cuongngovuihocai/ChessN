@@ -3,7 +3,7 @@
   "short_name": "Cờ Vua Bé",
   "description": "Ứng dụng cờ vua vui nhộn, học & chơi cờ vua tương tác dành cho các bé",
 
-  "start_url": "./",
+  "start_url": "/ChessN/",
   "display": "standalone",
   "orientation": "any",
 
