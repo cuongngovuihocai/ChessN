@@ -27,7 +27,7 @@ export const OnlineChat: React.FC<OnlineChatProps> = ({
 }) => {
   const [inputText, setInputText] = useState('');
   const [copiedLink, setCopiedLink] = useState(false);
-  const chatEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
 
   const rawMessagesList = room?.messages ? Object.values(room.messages) : [];
   const messagesList = rawMessagesList.filter((msg) => {
@@ -42,8 +42,14 @@ export const OnlineChat: React.FC<OnlineChatProps> = ({
     return true;
   });
 
+  // Auto scroll inside chat container only, avoiding window scroll jumps
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTo({
+        top: messagesContainerRef.current.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
   }, [messagesList.length]);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -135,7 +141,7 @@ export const OnlineChat: React.FC<OnlineChatProps> = ({
       </div>
 
       {/* Messages Scroll Area */}
-      <div className="flex-1 min-h-0 overflow-y-auto p-4 space-y-3 scrollbar-thin bg-[#FAF8F5]">
+      <div ref={messagesContainerRef} className="flex-1 min-h-0 overflow-y-auto p-4 space-y-3 scrollbar-thin bg-[#FAF8F5]">
         {messagesList.length === 0 ? (
           <div className="text-center py-10 px-4">
             <div className="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto mb-2 text-2xl">
@@ -210,7 +216,6 @@ export const OnlineChat: React.FC<OnlineChatProps> = ({
             })}
           </AnimatePresence>
         )}
-        <div ref={chatEndRef} />
       </div>
 
       {/* Quick Greeting Emojis / Phrases for Kids */}
