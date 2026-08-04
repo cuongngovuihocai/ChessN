@@ -34,12 +34,17 @@ export const CoachChat: React.FC<CoachChatProps> = ({
 }) => {
   const [inputText, setInputText] = React.useState('');
   const [isListening, setIsListening] = React.useState(false);
-  const chatEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const recognitionRef = useRef<any>(null);
 
-  // Auto scroll to bottom of chat
+  // Auto scroll inside chat container only, avoiding window scroll jumps
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTo({
+        top: messagesContainerRef.current.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
   }, [messages, isAiThinking]);
 
   // Clean up speech recognition on unmount
@@ -155,7 +160,7 @@ export const CoachChat: React.FC<CoachChatProps> = ({
       </div>
 
       {/* Messages area */}
-      <div className="flex-1 min-h-0 overflow-y-auto p-4 space-y-3 scrollbar-thin">
+      <div ref={messagesContainerRef} className="flex-1 min-h-0 overflow-y-auto p-4 space-y-3 scrollbar-thin">
         <AnimatePresence initial={false}>
           {messages.map((msg) => {
             const isPlayer = msg.sender === 'player';
@@ -277,7 +282,6 @@ export const CoachChat: React.FC<CoachChatProps> = ({
             </div>
           </div>
         )}
-        <div ref={chatEndRef} />
       </div>
 
       {/* Input controls form or Referee indicator */}
